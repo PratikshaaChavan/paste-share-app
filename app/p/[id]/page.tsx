@@ -2,7 +2,8 @@ import { headers } from 'next/headers';
 import { notFound } from 'next/navigation';
 import { getPasteWithoutIncrement, getCurrentTime } from '@/lib/db';
 
-export default async function PastePage({ params }: { params: { id: string } }) {
+export default async function PastePage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
   const headersList = headers();
   const currentTime = getCurrentTime(headersList);
   
