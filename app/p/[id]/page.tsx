@@ -4,9 +4,8 @@ import { getPasteWithoutIncrement, getCurrentTime } from '@/lib/db';
 
 export default async function PastePage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const headersList = headers();
-  const currentTime = getCurrentTime(headersList);
-  
+const headersList = await headers();
+const currentTime = getCurrentTime(headersList);
   const paste = await getPasteWithoutIncrement(params.id, currentTime);
   
   if (!paste) {
