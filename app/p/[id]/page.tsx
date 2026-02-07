@@ -6,8 +6,7 @@ export default async function PastePage({ params }: { params: Promise<{ id: stri
   const { id } = await params;
 const headersList = await headers();
 const currentTime = getCurrentTime(headersList);
-  const paste = await getPasteWithoutIncrement(params.id, currentTime);
-  
+  const paste = await getPasteWithoutIncrement(id, currentTime);
   if (!paste) {
     notFound();
   }
