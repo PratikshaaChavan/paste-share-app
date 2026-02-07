@@ -3,11 +3,12 @@ import { getPasteAndIncrementView, getCurrentTime } from '@/lib/db';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const { id } = await params;
   try {
     const currentTime = getCurrentTime(request.headers);
-    const paste = await getPasteAndIncrementView(params.id, currentTime);
+    const paste = await getPasteAndIncrementView(id, currentTime);  // ← FIXED HERE
     
     if (!paste) {
       return NextResponse.json(
