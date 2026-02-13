@@ -1,5 +1,9 @@
 # Pastebin Lite
 
+?? **[Live Demo](https://paste-share-app.vercel.app)** | ?? **[GitHub](https://github.com/PratikshaaChavan/paste-share-app)**
+
+---
+
 A simple pastebin application that allows users to create text pastes with optional expiry times and view limits.
 
 ## Features
