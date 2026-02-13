@@ -91,7 +91,7 @@ export async function getPasteWithoutIncrement(id: string, currentTime: number):
 
 export async function checkHealth(): Promise<boolean> {
   try {
-    await kv.set("health:check", Date.now(), { ex: 10 });
+    await kv.setex("health:check", 10, Date.now().toString());
     return true;
   } catch {
     return false;
