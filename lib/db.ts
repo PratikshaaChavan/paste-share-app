@@ -66,7 +66,7 @@ export async function createPaste(input: CreatePasteInput, currentTime: number):
  * Get a paste by ID and increment view count
  */
 export async function getPasteAndIncrementView(id: string, currentTime: number): Promise<Paste | null> {
-  const data = await kv.get<string>(`paste:${id}`);
+  const data = await kv.get(`paste:${id}`);
   
   if (!data) {
     return null;
@@ -105,7 +105,7 @@ export async function getPasteAndIncrementView(id: string, currentTime: number):
  * Get a paste by ID without incrementing view count (for HTML display)
  */
 export async function getPasteWithoutIncrement(id: string, currentTime: number): Promise<Paste | null> {
-  const data = await kv.get<string>(`paste:${id}`);
+  const data = await kv.get(`paste:${id}`);
   
   if (!data) {
     return null;
@@ -139,3 +139,4 @@ export async function checkHealth(): Promise<boolean> {
     return false;
   }
 }
+
